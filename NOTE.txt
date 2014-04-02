@@ -1,0 +1,12 @@
+Author:Lawrence Gandhar
+
+This project was created by me to ease my work for find files and deleting them.
+I wanted to implement more things such as port scanning, site grabbing, file transfers, downloads, etc.
+I would appreciate if you can contribute to this small project with your ideas, algorithms and code.
+Thak you.
+
+
+NOTE:
+
+The main file is PySystem.py so make it an executable and run it.
+
