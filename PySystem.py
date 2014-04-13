@@ -114,9 +114,20 @@ help, /?, ?	Show available commands
 	def designer(self,sym,num):
 		return sym*num
 
+	def ip_addr(self,ifname='eth0'):
+	    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	    ip = socket.inet_ntoa(fcntl.ioctl(sock.fileno(),0x00008915,struct.pack('30s','eth0'))[20:24]) 
+	    netmask = socket.inet_ntoa(fcntl.ioctl(sock.fileno(),0x0000891B,struct.pack('30s','eth0'))[20:24])	
+	    return ip,netmask
+
+
 	def sys_details(self):
 		os_details = os.uname()
-		#print 'IP Address	 :%s'%socket.gethostbyname(socket.gethostname())
+		ip,netmask = self.ip_addr('eth0')
+
+		print 'IP Address	 : %s' %ip
+		print 'Netmask	 	 : %s' %netmask
+
 		print 'Host		 : %s' %socket.gethostname()		
 		print 'Operating System : %s' %os_details[0]
 		print 'Release          : %s' %os_details[3]
