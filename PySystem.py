@@ -22,7 +22,8 @@ import socket
 import CmdOptions
 import Style
 import Prompt
-
+import fcntl
+import struct
 
 #=======================================================================================
 #	PySystem Class
